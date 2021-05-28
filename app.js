@@ -8,7 +8,6 @@ require('dotenv').config()
 
 // app.use(app.router, require('./controller/hello'))
 // routes.initialize(app);
-
 app.use('/', require('./routes/hello'))
 
 const PORT = process.env.PORT || 3000
