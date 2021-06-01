@@ -1,6 +1,18 @@
-import React from 'react'
-
+import React from 'react';
+import {useEffect, useState} from 'react';
 
 export const Hello = ()=> {
-  return(<div>Hello</div>)
+  const [initialState, setInitialState] = useState([])
+
+  useEffect(()=> {
+    fetch('/api/').then(res => {
+      if(res.ok){
+        return res.json()
+      }
+    }).then(jsonResponse => setInitialState(jsonResponse))
+  },[])
+
+  console.log(initialState)
+  return(<div>Hey</div>)
+
 }
